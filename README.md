@@ -47,12 +47,62 @@ DIVIDE( [Pass Count], [Executed Tests] )
 4. Data cleaning — date transformation & missing fields
 5. Analytical insight — trend & performance analysis
 
-## Data Source
+## Data Source and workflows
 
 1. Base dataset stored in Google Sheets
 2. Imported via CSV connector in Power BI
 3. Cleaned for date formats and text fields
 4. No confidential data — purely demo dataset
+
+### Data Workflow & Live Update Logic
+
+The data entry is distributed across five individual Google Sheets — one for each engineer (Dipika, Amit, Swapnil, Varun, Priya). Each member updates their assigned test results independently in their respective sheet.
+
+These individual sheets are linked to an aggregated master sheet using Google Sheet formulas, which automatically combines all entries with column validation and data consistency.
+
+Power BI reads from this aggregated sheet as a single unified data source.
+Whenever engineers update test cases in their own sheet:
+
+✔ changes automatically propagate to the master sheet
+
+✔ Power BI refreshes to reflect updated values
+
+✔ KPIs, charts, and slicers update in real time
+
+This simulates a collaborative QA execution system where multiple contributors work asynchronously but produce a centralized analytics view.
+
+## Data Flow Diagram
+
+           Engineer 1 (Dipika)  ┐
+                                │
+           Engineer 2 (Amit)    ┤
+                                │
+           Engineer 3 (Swapnil) ┤   Individual Data Input Sheets
+                                │
+           Engineer 4 (Varun)   ┤
+                                │
+           Engineer 5 (Priya)   ┘
+
+                                ⬇  (Automated aggregation using Google Sheets formulas)
+
+    ┌────────────────────────────────────────────────────────┐
+    │                    Master Aggregated Sheet             │
+    │      (live consolidated dataset of 1000 test records)  │
+    └────────────────────────────────────────────────────────┘
+                                ⬇
+                      Connected via Web CSV connector
+                                ⬇
+    ┌────────────────────────────────────────────────────────┐
+    │                        Power BI                        │
+    │ ┌─────────┬──────────┬──────────┬──────────┬─────────┐ │
+    │ │ KPIs    │ Donut    │ Workload │ Trend    │ Table   │ │
+    │ │ (DAX)   │ Chart    │ by Owner │ Over Time│ View    │ │
+    │ └─────────┴──────────┴──────────┴──────────┴─────────┘ │
+    │                                                        │
+    │ Real-time updates reflect new test data instantly      │
+    └────────────────────────────────────────────────────────┘
+
+    Each engineer updates their own sheet independently. These five sheets feed into the master aggregated sheet using formula-based synchronization. Power BI is connected to this unified dataset, enabling real-time updates and automatically refreshed analytics.
 
 ## Project Purpose
 
