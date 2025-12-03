@@ -106,11 +106,15 @@ This simulates a collaborative QA execution system where multiple contributors w
 
 ## Project Purpose
 
-1. This dashboard enables:
-2. QA teams to monitor progress
-3. Managers to identify bottlenecks
-4. Stakeholders to evaluate execution quality
-5. Data-driven decision making during release cycles
+### Real–World Context (Ericsson Experience Simulation)
+
+This dashboard simulates the type of QA test tracking, execution monitoring, and performance reporting that I previously participated in during my time at Ericsson. While the dataset here is anonymized and self-generated, the workflow, structure, and analytical process closely mirror the real-world test execution and reporting cycles used in telecom network validation and live node activities.
+
+This dashboard enables:
+1. QA teams to monitor progress
+2. Managers to identify bottlenecks
+3. Stakeholders to evaluate execution quality
+4. Data-driven decision making during release cycles
 
 ##### This project is an independent self–driven analytics initiative, simulating real QA execution reporting used in enterprise environments.
 
