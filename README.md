@@ -81,6 +81,16 @@ This project demonstrates the ability to:
 Screenshots are included in /screenshots/ directory.
 Interactive PBIX file will be available upon request.
 
+## Repository Structure
+
+    ├── README.md
+    ├── screenshots/
+    │   ├── dashboard-full.png
+    │   ├── donut-status.png
+    │   └── owner-workload.png
+    └── dataset/
+        └── sample_test_data.csv
+
 ## Author
 
 ### Dipika Chandra
